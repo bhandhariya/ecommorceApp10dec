@@ -28,7 +28,12 @@ export class LoginComponent implements OnInit {
     this.http.post('http://localhost:3000/users/login',r).subscribe(this.LoginFormSubmitCB)
   }
   LoginFormSubmitCB=(dt)=>{
-    console.log(dt)
+    console.log(dt);
+    if(dt._id){
+      alert('login successfull');
+    }else{
+      alert('login falied')
+    }
   }
 
 }
