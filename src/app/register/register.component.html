@@ -22,15 +22,35 @@
                       <div class="col-md-6">
                           <div class="form-group">
                               <input type="text" class="form-control" formControlName="fname"  placeholder="First Name *" value="" />
+                              <div *ngIf="registerForm.controls['fname'].invalid && (registerForm.controls['fname'].dirty || registerForm.controls['fname'].touched)" class="alert alert-danger">
+                                    <div *ngIf="registerForm.controls['fname'].errors.required">
+                                   First Name is required.
+                                  </div>
+                                </div>
                           </div>
                           <div class="form-group">
                               <input type="text" class="form-control" formControlName="lname" placeholder="Last Name *" value="" />
+                              <div *ngIf="registerForm.controls['lname'].invalid && (registerForm.controls['lname'].dirty || registerForm.controls['lname'].touched)" class="alert alert-danger">
+                                    <div *ngIf="registerForm.controls['lname'].errors.required">
+                                   Last Name is required.
+                                  </div>
+                                </div>
                           </div>
                           <div class="form-group">
                               <input type="password" class="form-control" formControlName="password" placeholder="Password *" value="" />
+                              <div *ngIf="registerForm.controls['password'].invalid && (registerForm.controls['password'].dirty || registerForm.controls['password'].touched)" class="alert alert-danger">
+                                    <div *ngIf="registerForm.controls['password'].errors.required">
+                                            password is required.
+                                  </div>
+                                </div>
                           </div>
                           <div class="form-group">
                               <input type="password" class="form-control"  formControlName="rpassword" placeholder="Confirm Password *" value="" />
+                              <div *ngIf="registerForm.controls['rpassword'].invalid && (registerForm.controls['rpassword'].dirty || registerForm.controls['rpassword'].touched)" class="alert alert-danger">
+                                    <div *ngIf="registerForm.controls['rpassword'].errors.required">
+                                   password is required.
+                                  </div>
+                                </div>
                           </div>
                           <div class="form-group">
                               <div class="maxl">
@@ -43,6 +63,11 @@
                                       <span>Female </span> 
                                   </label>
                               </div>
+                              <div *ngIf="registerForm.controls['gender'].invalid && (registerForm.controls['gender'].dirty || registerForm.controls['gender'].touched)" class="alert alert-danger">
+                                    <div *ngIf="registerForm.controls['gender'].errors.required">
+                                   Gender is required.
+                                  </div>
+                                </div>
                           </div>
                       </div>
                       <div class="col-md-6">
