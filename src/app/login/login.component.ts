@@ -31,6 +31,10 @@ export class LoginComponent implements OnInit {
     console.log(dt);
     if(dt._id){
       alert('login successfull');
+      this.router.navigateByUrl('admin');
+      localStorage.setItem("admin",dt);
+      // var admin=localStorage.getItem("admin");
+      // console.log(admin)
     }else{
       alert('login falied')
     }
