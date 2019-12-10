@@ -32,3 +32,19 @@ exports.register=function(req,res,next){
       });
     
 }
+
+exports.login=function(req,res,next){
+    var data=req.body;
+    User.findOne({email:data.email}).exec(function(err,result){
+        if(result){
+            console.log(result.password,data.password)
+            bcrypt.compare(data.password, result.password, function(error, resultt) {
+               if(resultt==true){
+                   res.send(result)
+               }
+            });
+        }else{
+            res.send(err)
+        }
+    })
+}

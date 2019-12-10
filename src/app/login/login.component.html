@@ -16,20 +16,20 @@
               </li>
           </ul>
           <div class="tab-content" id="myTabContent">
-              <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+              <div class="tab-pane fade show active" id="home" role="tabpanel" [formGroup]="LoginForm" aria-labelledby="home-tab">
                   <h3 class="register-heading">Login as a Employee</h3>
                   <div class="row register-form">
                       <div class="col-md-6">
                           <div class="form-group">
-                              <input type="email" class="form-control" placeholder="Your Email *" value="" />
+                              <input type="email" formControlName="email" class="form-control" placeholder="Your Email *" value="" />
                           </div>
                         
                       </div>
                       <div class="col-md-6">
                           <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Password *" value="" />
+                            <input type="password" formControlName="password"  class="form-control" placeholder="Password *" value="" />
                         </div>
-                          <input type="submit" class="btnRegister"  value="login"/>
+                          <input type="submit" (click)="LoginFormSubmit(LoginForm.value)" class="btnRegister"  value="login"/>
                       </div>
                   </div>
               </div>
