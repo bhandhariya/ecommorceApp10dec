@@ -5,10 +5,11 @@
                 <div class="navi">
                     <ul>
                         <li class="active"><a href="#"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Home</span></a></li>
-                        <li><a href="#"><i class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Workflow</span></a></li>
-                        <li><a href="#"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Statistics</span></a></li>
-                        <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Calender</span></a></li>
-                        <li><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Users</span></a></li>
+                        <li><a [routerLink]="['/admin/cat']" routerLinkActive="router-link-active" ><i class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Category</span></a></li>
+                        <li><a [routerLink]="['/admin/sc']"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Sub Category</span></a></li>
+                        <li><a [routerLink]="['/admin/ssc']"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Sub Sub Category</span></a></li>
+                        <li><a [routerLink]="['/admin/brand']"><i class="fa fa-calendar" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Brand</span></a></li>
+                        <li><a [routerLink]="['/admin/product']"><i class="fa fa-calendar" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Product</span></a></li>
                         <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Setting</span></a></li>
                     </ul>
                 </div>
@@ -46,11 +47,13 @@
                     <h1>Hello, {{username}}</h1>
                     
                 </div>
+                <router-outlet></router-outlet>
             </div>
+         
         </div>
-
+       
     </div>
 
-<router-outlet></router-outlet>
+
 
 </body>

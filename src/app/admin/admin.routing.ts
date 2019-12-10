@@ -2,23 +2,22 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from './admin/admin.component';
+import { ProductComponent } from './product/product.component';
+import { BrandComponent } from './brand/brand.component';
+import { SubsubcategoryComponent } from './subsubcategory/subsubcategory.component';
+import { SubcategoryComponent } from './subcategory/subcategory.component';
+import { CategoryComponent } from './category/category.component';
 
 
 
 const routes: Routes = [
     {
       path : '', component: AdminComponent, children : [
-        // {path: 'programming',
-        // component:ProgrammingComponent
-        // },
-        // {path: 'dark',
-        // component:DarkComponent
-        // },
-        // {path:'celebrity',component:CelebrityComponent},
-        // {path:'dev',component:DevComponent},
-        // {path:'explicit',component:ExplicitComponent},
-        // {path:'fashion',component:FashionComponent},
-        // {path:'food',component:FoodComponent},
+        {path:'cat',component:CategoryComponent},
+        {path:'sc',component:SubcategoryComponent},
+        {path:'ssc',component:SubsubcategoryComponent},
+        {path:'brand',component:BrandComponent},
+        {path:'product',component:ProductComponent},
         // {path:'history',component:HistoryComponent},
         // {path:'money',component:MoneyComponent},
         // {path:'movie',component:MovieComponent},
