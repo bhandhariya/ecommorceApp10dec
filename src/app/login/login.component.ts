@@ -30,9 +30,9 @@ export class LoginComponent implements OnInit {
   LoginFormSubmitCB=(dt)=>{
     console.log(dt);
     if(dt._id){
-      alert('login successfull');
-      this.router.navigateByUrl('admin');
-      localStorage.setItem("admin",dt);
+     
+      this.router.navigate(['admin',{id:dt._id,name:dt.fname}]);
+     
       // var admin=localStorage.getItem("admin");
       // console.log(admin)
     }else{
