@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-subcategory',
@@ -11,5 +12,9 @@ export class SubcategoryComponent implements OnInit {
 
   ngOnInit() {
   }
+  SubCategoryForm=new FormGroup({
+    name:new FormControl(''),
+    description:new FormControl('')
+  })
 
 }

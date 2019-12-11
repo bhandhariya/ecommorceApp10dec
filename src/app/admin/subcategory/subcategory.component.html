@@ -1,3 +1,18 @@
-<p>
-  subcategory works!
-</p>
+<div class="example-container" [formGroup]="SubCategoryForm"  >
+
+    <mat-form-field>
+        <mat-select placeholder="Select Category">
+          <mat-option value="option">Option</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Enter Sub Category Name" formControlName="name"  >
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea matInput placeholder="Sub Category Description" formControlName="description"  ></textarea>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="CategoryFormSubmit(CategoryForm.value)"  >Add Category</button>
+</div>
