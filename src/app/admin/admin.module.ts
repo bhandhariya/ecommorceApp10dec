@@ -7,11 +7,13 @@ import { SubcategoryComponent } from './subcategory/subcategory.component';
 import { SubsubcategoryComponent } from './subsubcategory/subsubcategory.component';
 import { BrandComponent } from './brand/brand.component';
 import { ProductComponent } from './product/product.component';
+import { MaterialModule } from '../material.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AdminComponent, CategoryComponent, SubcategoryComponent, SubsubcategoryComponent, BrandComponent, ProductComponent],
   imports: [
-    CommonModule,AdminRoutingModule
+    CommonModule,AdminRoutingModule,MaterialModule,FormsModule,ReactiveFormsModule
   ]
 })
 export class AdminModule { }
