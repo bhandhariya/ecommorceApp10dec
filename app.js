@@ -8,10 +8,7 @@ var cors=require('cors');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var CategoryRouter=require('./routes/category_route');
-var SubCateRoute=require('./routes/subcategory_route');
-var SubsubCatRouter=require('./routes/subsubCategory_route');
-var BrnadRouter=require('./routes/brand_route');
-var ProductRouter=require('./routes/product_route');
+
 
 var db=require('./bin/db');
 var app = express();
@@ -30,10 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/api/category',CategoryRouter);
-app.use('/api/subcategory',SubCateRoute);
-app.use('/api/subsubcategory',SubsubCatRouter);
-app.use('/api/brand',BrnadRouter);
-app.use('/api/product',ProductRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
