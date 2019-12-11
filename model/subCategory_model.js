@@ -12,6 +12,33 @@ var SubCategorySchema=new Schema({
     toObject:{virtuals:true}
 })
 
+SubCategorySchema.virtual('getsubcategoryCategory',{
+    ref: 'Category',
+    localField: 'categoryid',
+    foreignField: '_id',
+    justOne: false,
+})
+
+SubCategorySchema.virtual('getsubcategorysubsubcategory',{
+    ref: 'SubSubCategory',
+    localField: '_id',
+    foreignField: 'subcategoryid',
+    justOne: false,
+})
+
+SubCategorySchema.virtual('getsubcategoryBrand',{
+    ref: 'Brand',
+    localField: '_id',
+    foreignField: 'subsubcategoryid',
+    justOne: false,
+})
+
+SubCategorySchema.virtual('getallcatforsubcatbyid',{
+    ref: 'Category',
+    localField: 'categoryid',
+    foreignField: '_id',
+    justOne: false,
+})
 
 
 module.exports=mongoose.model('SubCategory',SubCategorySchema);

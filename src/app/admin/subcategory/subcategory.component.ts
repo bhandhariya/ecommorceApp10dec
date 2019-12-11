@@ -35,8 +35,7 @@ export class SubcategoryComponent implements OnInit {
   })
   SubCategoryFormSubmit(r){
     console.log(r);
-    this.http.post('/api/subcategory/createSubCategory',r).subscribe(this.SubCategoryFormSubmitCB)
-    // this.subCatService.createSubCategory(r);
+    this.subCatService.create(r).subscribe(this.SubCategoryFormSubmitCB);
   }
   SubCategoryFormSubmitCB=(dt)=>{
     alert('added')
@@ -50,7 +49,7 @@ export class SubcategoryComponent implements OnInit {
   SubCategories;
   getAllSubCategoriesWithCategoryCB=(dt)=>{
     this.SubCategories=dt;
-    console.log(this.SubCategories)
+    console.log(this.SubCategories);
   }
   a;
   editSubCategory(i){
@@ -70,11 +69,19 @@ export class SubcategoryComponent implements OnInit {
   subCategoryEditFormSubmit(r){
     this.a=""
     console.log(r);
-    // this.subCatService.editCategorybyID(r)
-    // this.http.post('http://localhost:3000/api/subcategory/editSubCategorybyID',r)
+   
     
   }
-
+  deleteSubCategory(id){
+    var obj={
+      id:id
+    }
+    this.subCatService.deleteByid(obj).subscribe(this.deleteSubCategoryCB)
+  }
+  deleteSubCategoryCB=(dt)=>{
+    console.log(dt);
+    this.getAllSubCategoriesWithCategory();
+  }
  
 
 }
