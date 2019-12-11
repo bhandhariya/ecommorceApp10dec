@@ -30,12 +30,11 @@ export class LoginComponent implements OnInit {
   LoginFormSubmitCB=(dt)=>{
     console.log(dt);
     if(dt._id){
-     
-      this.router.navigate(['admin',{id:dt._id,name:dt.fname}]);
-     
-      // var admin=localStorage.getItem("admin");
-      // console.log(admin)
-    }else{
+      console.log(dt);
+      localStorage.setItem('username',dt.fname+' '+dt.lname);
+      localStorage.setItem('email',dt.email)
+      this.router.navigateByUrl('admin');
+     }else{
       alert('login falied')
     }
   }

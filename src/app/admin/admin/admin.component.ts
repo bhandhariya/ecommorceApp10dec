@@ -7,13 +7,12 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-  username;
+  username;email;
   constructor(private aroute:ActivatedRoute) { }
 
   ngOnInit() {
-    this.aroute.paramMap.subscribe(r=>{
-      this.username=(r.get('name'))
-    })
+   this.username=localStorage.getItem('username');
+   this.email=localStorage.getItem('email');
   }
 
 }
