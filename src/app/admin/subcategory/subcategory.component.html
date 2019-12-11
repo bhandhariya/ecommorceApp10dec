@@ -1,8 +1,8 @@
 <div class="example-container" [formGroup]="SubCategoryForm"  >
 
     <mat-form-field>
-        <mat-select placeholder="Select Category">
-          <mat-option value="option">Option</mat-option>
+        <mat-select placeholder="Select Category" formControlName="categoryid" >
+          <mat-option *ngFor="let i of CategoriesData" value="{{i._id}}">{{i.name}}</mat-option>
         </mat-select>
       </mat-form-field>
 
@@ -14,5 +14,5 @@
     <textarea matInput placeholder="Sub Category Description" formControlName="description"  ></textarea>
   </mat-form-field>
 
-  <button mat-raised-button color="primary" (click)="CategoryFormSubmit(CategoryForm.value)"  >Add Category</button>
+  <button mat-raised-button color="primary" (click)="SubCategoryFormSubmit(SubCategoryForm.value)"  >Add Sub Category</button>
 </div>
