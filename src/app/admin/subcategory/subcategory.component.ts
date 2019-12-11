@@ -67,10 +67,16 @@ export class SubcategoryComponent implements OnInit {
     categoryid:new FormControl('')
   })
   subCategoryEditFormSubmit(r){
-    this.a=""
-    console.log(r);
    
+    console.log(r);
+    this.subCatService.editByid(r).subscribe(this.subCategoryEditFormSubmitCB)
     
+  }
+  subCategoryEditFormSubmitCB=(dt)=>{
+    this.a=""
+    console.log(dt);
+    this.getAllSubCategoriesWithCategory();
+
   }
   deleteSubCategory(id){
     var obj={
@@ -83,5 +89,7 @@ export class SubcategoryComponent implements OnInit {
     this.getAllSubCategoriesWithCategory();
   }
  
-
+  cancleEditCategory(){
+    this.a=""
+  }
 }

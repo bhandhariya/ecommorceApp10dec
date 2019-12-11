@@ -53,5 +53,19 @@ exports.getsubsubcategorybyid=function(req,res,next){
 }
 
 exports.editsubsubcategory=function(req,res,next){
-    res.send({name:'editsubsubcategory working'})
+    var data=req.body;
+    console.log(data);
+    SubCategory.findByIdAndUpdate(data.id,{
+        $set:{
+            name:data.name,
+            description:data.description,
+            categoryid:data.categoryid
+        }
+    }).exec(function(err,result){
+        if(result){
+            res.send(result)
+        }else{
+            res.send(err)
+        }
+    })
 }
