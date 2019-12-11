@@ -32,3 +32,32 @@ exports.getAllCategories=function(req,res,next){
     })
 
 }
+
+exports.editCategorybyID=function(req,res,next){
+  var data=req.body;
+  Category.findByIdAndUpdate(data.id, { $set: { 
+      name:data.name,
+      description:data.description 
+    }}, function(err,result){
+        if(err){
+            res.send(err.errmsg)
+        }else{
+            res.send(result)
+        }
+    })
+
+}
+
+exports.deleteCategorybyID=function(req,res,next){
+    var data=req.body;
+   Category.findByIdAndDelete(data.id,function(err,result){
+    if(err){
+        res.send(err.errmsg)
+    }else{
+        res.send(result)
+    }
+})
+  
+  }
+  
+

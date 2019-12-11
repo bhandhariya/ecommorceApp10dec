@@ -9,6 +9,10 @@ router.get('/', function(req, res, next) {
 
 router.post('/create',Category.createCategory);
 
-router.get('/getAllCategories',Category.getAllCategories)
+router.get('/getAllCategories',Category.getAllCategories);
+
+router.post('/editCategorybyID',Category.editCategorybyID);
+
+router.post('/deleteCategorybyID',Category.deleteCategorybyID);
 
 module.exports = router;

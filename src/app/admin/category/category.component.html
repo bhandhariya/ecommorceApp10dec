@@ -24,14 +24,35 @@
       <tbody>
         <tr *ngFor="let category of Categories;let i=index" >
           <td scope="row">{{i+1}}</td>
-          <td>{{category.name}}</td>
-          <td>{{category.description}}</td>
-          <td>{{category.creationDate | date}}</td>
-          <td>
+          <td *ngIf="a!=category._id;else cedit" >{{category.name}}</td>
+          <td *ngIf="a!=category._id;" >{{category.description}}</td>
+          <td *ngIf="a!=category._id;">{{category.creationDate | date}}</td>
+          <td *ngIf="a!=category._id;">
             <button mat-raised-button color="accent" (click)="editCategory(category)"  >Edit</button>
-            <button mat-raised-button color="warn">Delete</button>
+            <button class="marginleft" mat-raised-button color="warn" (click)="deleteCategory(category._id)" >Delete</button>
           </td>
         </tr>
       </tbody>
   </table>
 </div>
+
+<ng-template #cedit  >
+  <td>
+    <mat-form-field  [formGroup]="categoryEditForm">
+      <input matInput placeholder="Enter Category Name" formControlName="name"  >
+    </mat-form-field>
+  </td>
+  <td>
+    <mat-form-field  [formGroup]="categoryEditForm">
+      <input matInput placeholder="Enter Descitption " formControlName="description"    >
+    </mat-form-field>
+  </td>
+  <td><mat-form-field [formGroup]="categoryEditForm">
+    <input matInput placeholder="Enter Category Name" formControlName="date" onkeydown="return false;"  >
+  </mat-form-field></td>
+  <td>
+    <button mat-raised-button color="accent"  (click)="cancleEditCategory()"  >Cancle</button>
+    <button class="marginleft" mat-raised-button color="warn" (click)="categoryEditFormSubmit(categoryEditForm.value)" >Save</button>
+  </td>
+</ng-template>
+
