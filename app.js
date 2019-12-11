@@ -8,6 +8,7 @@ var cors=require('cors');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var CategoryRouter=require('./routes/category_route');
+var SubCategoryRouter=require('./routes/subCategory_route');
 
 
 var db=require('./bin/db');
@@ -27,6 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/api/category',CategoryRouter);
+app.use('/api/subcategory',SubCategoryRouter);
 
 
 // catch 404 and forward to error handler
