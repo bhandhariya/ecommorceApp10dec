@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import Swal from 'sweetalert2';
+import { CategoryService } from "./category.service";
 
 @Component({
   selector: 'app-category',
@@ -10,7 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class CategoryComponent implements OnInit {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,private catService:CategoryService) { }
 
   ngOnInit() {
     this.getAllCategories();
@@ -22,7 +23,7 @@ export class CategoryComponent implements OnInit {
   })
   CategoryFormSubmit(r){
     console.log(r);
-    this.http.post('/api/category/create',r).subscribe(this.CategoryFormSubmitCB)
+    this.catService.create(r).subscribe(this.CategoryFormSubmitCB);
   }
   CategoryFormSubmitCB=(dt)=>{
     console.log(dt);
@@ -32,7 +33,7 @@ export class CategoryComponent implements OnInit {
     
   }
   getAllCategories(){
-    this.http.get('/api/category/getAllCategories').subscribe(this.getAllCategoriesCB)
+    this.catService.getAllCategories().subscribe(this.getAllCategoriesCB)
   }
   Categories;
   getAllCategoriesCB=(dt)=>{
@@ -59,7 +60,7 @@ export class CategoryComponent implements OnInit {
   categoryEditFormSubmit(r){
     this.a="";
     console.log(r);
-    this.http.post('/api/category/editCategorybyID',r).subscribe(this.categoryEditFormSubmitCB)
+    this.catService.editCategorybyID(r).subscribe(this.categoryEditFormSubmitCB);
   }
   categoryEditFormSubmitCB=(dt)=>{
     console.log(dt);
@@ -69,7 +70,7 @@ export class CategoryComponent implements OnInit {
     var obj={
       id:i
     }
-    this.http.post('/api/category/deleteCategorybyID',obj).subscribe(this.categoryEditFormSubmitCB)
+    this.catService.deleteCategorybyID(obj).subscribe(this.categoryEditFormSubmitCB);
   }
 
 }
