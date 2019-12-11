@@ -1,4 +1,4 @@
-var SUbCategory=require('../model/subCategory_model')
+var SUbCategory=require('../model/subsubcategory_model')
 var mongoose=require('mongoose')
 
 exports.createSubCategory=function(req,res,next){

@@ -16,3 +16,56 @@
 
   <button mat-raised-button color="primary" (click)="SubCategoryFormSubmit(SubCategoryForm.value)"  >Add Sub Category</button>
 </div>
+
+<div class="container" *ngIf="SubCategories" >
+  <table class="table table-hover table-inverse table-responsive">
+    <thead class="thead-inverse">
+      <tr>
+        <th>S.N.</th>
+        <th>Category</th>
+        <th>Sub Category Name</th>
+        <th>Description</th>
+
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let category of SubCategories;let i=index" >
+          <td scope="row">{{i+1}}</td>
+          <td *ngIf="a!=category._id;else cedit" >{{category.getsubcategoryCategory[0].name}}</td>
+          <td *ngIf="a!=category._id;">{{category.name}}</td>
+          <td *ngIf="a!=category._id;" >{{category.description}}</td>
+      
+          <td *ngIf="a!=category._id;">
+            <button mat-raised-button color="accent" (click)="editSubCategory(category)"  >Edit</button>
+            <button class="marginleft" mat-raised-button color="warn" (click)="deleteCategory(category._id)" >Delete</button>
+          </td>
+        </tr>
+      </tbody>
+  </table>
+</div>
+
+<ng-template #cedit  >
+  <td>
+      <mat-form-field [formGroup]="subCategoryEditForm" >
+          <mat-select placeholder="Select Category" formControlName="categoryid" >
+            <mat-option *ngFor="let i of CategoriesData" value="{{i._id}}">{{i.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+  </td>
+  <td>
+    <mat-form-field [formGroup]="subCategoryEditForm" >
+      <input matInput placeholder="Enter Sub Category Name" formControlName="name"  >
+    </mat-form-field>
+  </td>
+  <td>
+    <mat-form-field [formGroup]="subCategoryEditForm" >
+      <input matInput placeholder="Enter Descitption " formControlName="description"  >
+    </mat-form-field>
+  </td>
+  
+  <td>
+    <button mat-raised-button color="accent"  (click)="cancleEditCategory()"  >Cancle</button>
+    <button class="marginleft" mat-raised-button color="warn" (click)="subCategoryEditFormSubmit(subCategoryEditForm.value)" >Save</button>
+  </td>
+</ng-template>

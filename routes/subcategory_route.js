@@ -11,6 +11,8 @@ router.get('/getAllSubCategories',SUbCategory.getAllSubCategories);
 
 router.post('/createSubCategory',SUbCategory.createSubCategory);
 
+router.post('/editSubCategorybyID',SUbCategory.editSubCategorybyID);
+
 router.post('/deleteSubCategorybyid',SUbCategory.deleteSubCategorybyid);
 
 router.post('/getallcatforsubcatbyid',SUbCategory.getallcatforsubcatbyid);
