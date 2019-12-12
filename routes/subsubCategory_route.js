@@ -10,4 +10,6 @@ router.post('/createSScategory',SSC.createSubSUbCategory);
 
 router.get('/getAllSubSUbCategory',SSC.getAllSubSUbCategory);
 
+router.post('/editbyid',SSC.editbyid);
+
 module.exports = router;
