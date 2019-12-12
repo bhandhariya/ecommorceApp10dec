@@ -45,6 +45,7 @@ export class SubsubcategoryComponent implements OnInit {
     console.log(dt);
     if(dt._id){
       this.SubSubCategoryForm.reset();
+      this.getAllSubSUbCategory();
     }
   }
   SubSubCategory;
