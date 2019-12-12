@@ -30,3 +30,21 @@ exports.getAllSubSUbCategory=function(req,res,next){
         }
     })
 }
+
+exports.editbyid=function(req,res,next){
+    var data=req.body;
+    SubSubCategory.findByIdAndUpdate(data.id,{
+        $set:{
+            name:data.name,
+            description:data.description,
+            categoryid:data.categoryid,
+            subcategoryid:data.subcategoryid
+        }
+    }).exec(function(err,ssc){
+        if(ssc){
+            res.send(ssc);
+        }else{
+            res.send(err);
+        }
+    })
+}
