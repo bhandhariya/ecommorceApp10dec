@@ -11,6 +11,8 @@ router.post('/create',Brand.createBrand);
 
 router.get('/getAllBrand',Brand.getAllbrnads);
 
+router.get('/get',Brand.get);
+
 router.get('/getAllbrandWithAlldetails',Brand.getAllbrandWithAlldetails);
 
 router.post('/editByid',Brand.editByid);

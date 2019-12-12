@@ -1,5 +1,6 @@
 var Brand=require('../model/brand_model');
 var mongoose=require('mongoose');
+var Category=require('../model/category_model');
 
 exports.createBrand=function(req,res,next){
     var data=req.body;
@@ -29,6 +30,16 @@ exports.getAllbrnads=function(req,res,next){
 
 exports.getAllbrandWithAlldetails=function(req,res,next){
     Brand.find().populate('getsbrandCategory').populate('getbrandsubCategory').populate('getbrandsubsubCategory').exec(function(err,result){
+        if(result){
+            res.send(result)
+        }else{
+            res.send(err)
+        }
+    })
+}
+
+exports.get=function(req,res,next){
+    Category.find().populate('getcategorySubcategory').populate('getcategorySubSubcategory').populate('getcategoryBrand').exec(function(err,result){
         if(result){
             res.send(result)
         }else{
