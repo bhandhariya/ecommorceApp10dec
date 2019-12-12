@@ -14,8 +14,13 @@ exports.createBrand=function(req,res,next){
         subcategoryid:data.subcategoryid,
         subsubcategoryid:data.subsubcategoryid
     });
-    console.log(obj);
-    res.send(obj)
+    obj.save(function(err,result){
+        if(result){
+            res.send(result)
+        }else{
+            res.send(err)
+        }
+    })
 }
 
 exports.getAllbrnads=function(req,res,next){

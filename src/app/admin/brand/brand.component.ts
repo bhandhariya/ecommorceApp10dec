@@ -15,6 +15,7 @@ export class BrandComponent implements OnInit {
 
   ngOnInit() {
     this.getData();
+    this.getBrandDaTA();
   }
   BrandForm=new FormGroup({
     categoryid:new FormControl(''),
@@ -23,7 +24,21 @@ export class BrandComponent implements OnInit {
     name:new FormControl(''),
   })
   BrandFormSubmit(r){
-    console.log(r)
+    console.log(r);
+    this.brandService.createBrand(r).subscribe(this.BrandFormSubmitCB)
+  }
+  BrandFormSubmitCB=(dt)=>{
+    console.log(dt);
+    this.BrandForm.reset();
+    this.getBrandDaTA();
+  }
+  getBrandDaTA(){
+    this.brandService.getAllSubSUbCategory().subscribe(this.getBrandDaTACB)
+  }
+  Brand;
+  getBrandDaTACB=(dt)=>{
+this.Brand=dt;
+console.log(this.Brand)
   }
   getData(){
    this.brandService.getAll().subscribe(this.getDataCB)
@@ -33,8 +48,19 @@ export class BrandComponent implements OnInit {
     console.log(dt);
     this.CategoriesData=dt;
   }
+  SubCategory;
+  getSubCategoryList(i){
+    console.log(i)
+    this.SubCategory=i.getcategorySubcategory;
+    console.log(this.SubCategory)
+  }
   SubSubCategory;
-  getSubSubCategoryList(i){
-    this.SubSubCategory=i.getcategorySubcategory;
+  getSubSubCategory(j){
+    this.SubSubCategory=j.getsubcategorysubsubcategory;
+    console.log(this.SubSubCategory)
+  }
+  Brand;
+  getBrand(j){
+this.Brand=j.getsubsubCategoryBrand;
   }
 }

@@ -17,4 +17,8 @@ export class BrandService {
     return this.http.get<Response>('/api/brand/get');
   }
 
+  public createBrand(data): Observable<Response>  {
+    return this.http.post<Response>('/api/brand/create',data);
+  }
+
 }

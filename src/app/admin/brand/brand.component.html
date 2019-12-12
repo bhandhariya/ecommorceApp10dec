@@ -2,23 +2,61 @@
 
   <mat-form-field>
       <mat-select placeholder="Select Category"  formControlName="categoryid"   >
-        <mat-option *ngFor="let i of CategoriesData" value="{{i._id}}"  (click)="getSubSubCategoryList(i)"   >{{i.name}}</mat-option>
+        <mat-option *ngFor="let i of CategoriesData" value="{{i._id}}"  (click)="getSubCategoryList(i)"   >{{i.name}}</mat-option>
       </mat-select>
     </mat-form-field>
 
+    <mat-form-field *ngIf="SubCategory" >
+      <mat-select placeholder="Select Sub Category"  formControlName="subcategoryid"   >
+        <mat-option *ngFor="let j of SubCategory" value="{{j._id}}" (click)="getSubSubCategory(j)"    >{{j.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
 
     <mat-form-field *ngIf="SubSubCategory" >
-      <mat-select placeholder="Select Sub Category"  formControlName="subcategoryid" >
-        <mat-option  *ngFor="let i of SubSubCategory" value={{i._id}}  >{{i.name}}</mat-option>
+      <mat-select placeholder="Select Sub  Sub Category"  formControlName="subsubcategoryid"   >
+        <mat-option *ngFor="let j of SubSubCategory" value="{{j._id}}"     >{{j.name}}</mat-option>
       </mat-select>
     </mat-form-field>
 
+    <!-- <mat-form-field *ngIf="Brand" >
+      <mat-select placeholder="Select Sub  Sub Category"  formControlName="subsubcategoryid"   >
+        <mat-option *ngFor="let j of Brand" value="{{j._id}}"     >{{j.name}}</mat-option>
+      </mat-select>
+    </mat-form-field> -->
 
-<mat-form-field>
-  <input matInput placeholder="Enter Sub Category Name" formControlName="name"  >
-</mat-form-field>
-
+    <mat-form-field>
+      <input matInput placeholder="Enter brand Name" formControlName="name"  >
+    </mat-form-field>
 
 
 <button mat-raised-button color="primary" (click)="BrandFormSubmit(BrandForm.value)"  >Add brand</button>
+</div>
+
+
+<div class="container" *ngIf="Brand" >
+  <table class="table table-hover table-inverse table-responsive">
+    <thead class="thead-inverse">
+      <tr>
+        <th>S.N.</th>
+        <th>Category Name</th>
+        <th>SubCategory</th>
+        <th>SubSubCategory</th>
+        <th>Brand</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let category of Brand;let i=index" >
+          <td scope="row">{{i+1}}</td>
+          <td *ngIf="a!=category._id;else cedit" >{{category.getsbrandCategory[0].name}}</td>
+          <td *ngIf="a!=category._id;">{{category.getbrandsubCategory[0].name}}</td>
+          <td *ngIf="a!=category._id;">{{category.getbrandsubsubCategory[0].name}}</td>
+          <td *ngIf="a!=category._id;" >{{category.name}}</td>
+          <td *ngIf="a!=category._id;">
+            <button mat-raised-button color="accent" (click)="editsubsubCategory(category)"  >Edit</button>
+            <button class="marginleft" mat-raised-button color="warn" (click)="deleteSubSubCategory(category._id)" >Delete</button>
+          </td>
+        </tr>
+      </tbody>
+  </table>
 </div>
