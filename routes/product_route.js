@@ -4,7 +4,7 @@ var Product = require('../controller/product_controller')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
- res.send("product router")
+ res.send({name:"product router"})
 });
 router.post('/createproduct',Product.create)
 
