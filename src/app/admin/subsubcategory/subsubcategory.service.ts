@@ -20,4 +20,8 @@ export class SubsubcategoryService {
     return this.http.post<Response>('/api/subsubcategory/editbyid',data);
   }
 
+  public deletebyID(data): Observable<Response>  {
+    return this.http.post<Response>('/api/subsubcategory/deletebyid',data);
+  }
+
 }

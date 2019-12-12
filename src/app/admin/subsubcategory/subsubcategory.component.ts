@@ -71,7 +71,10 @@ export class SubsubcategoryComponent implements OnInit {
     this.subSubCategoryEditForm.get('description').setValue(c.description);
   }
   deleteSubSubCategory(id){
-    console.log(id)
+    var obj={
+      id:id
+    }
+    this.ssCatService.deletebyID(obj).subscribe(this.subSubCategoryEditFormSubmitCB)
   }
   cancleEditCategory(){
     this.a="";
