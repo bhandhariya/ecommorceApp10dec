@@ -13,4 +13,8 @@ router.get('/getAllBrand',Brand.getAllbrnads);
 
 router.get('/getAllbrandWithAlldetails',Brand.getAllbrandWithAlldetails);
 
+router.post('/editByid',Brand.editByid);
+
+router.post('/deleteByid',Brand.deleteByid);
+
 module.exports = router;
