@@ -18,8 +18,13 @@ exports.create=function(req,res,next){
         image:data.image,
         description:data.description
     });
-    console.log(obj);
-    res.send(obj)
+    obj.save(function(err,result){
+        if(result){
+            res.send(result)
+        }else{
+            res.send(err)
+        }
+    })
 }
 exports.getAllProductwithAllData=function(req,res,next){
     Product.find().populate('getCategoryofproduct').populate('getSubcategoryofProduct')

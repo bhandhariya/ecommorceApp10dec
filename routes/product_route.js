@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 });
 router.post('/createproduct',Product.create)
 
-router.get('/getAllProductsdata',Product.getAllProductwithAllData)
+// router.get('/getAllProductsdata',Product.getAllProductwithAllData)
 
 router.get('/getalldataforcatefory',Product.getAllData);
 
