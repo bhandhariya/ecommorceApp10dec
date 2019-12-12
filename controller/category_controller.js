@@ -33,6 +33,18 @@ exports.getAllCategories=function(req,res,next){
 
 }
 
+
+exports.getAllCategorieswithSubCategory=function(req,res,next){
+    Category.find().populate('getcategorySubcategory').exec(function(err,result){
+        if(err){
+            res.send(err.errmsg)
+        }else{
+            res.send(result)
+        }
+    })
+
+}
+
 exports.editCategorybyID=function(req,res,next){
   var data=req.body;
   Category.findByIdAndUpdate(data.id, { $set: { 

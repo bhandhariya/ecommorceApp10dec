@@ -17,6 +17,10 @@ export class CategoryService {
     return this.http.get<Response>('/api/category/getAllCategories');
   }
 
+  public getAllCategorieswithCategory(): Observable<Response> {
+    return this.http.get<Response>('/api/category/getAllCategorieswithSubCategory');
+  }
+
   public editCategorybyID(data): Observable<Response> {
     return this.http.post<Response>('/api/category/editCategorybyID', data);
   }
