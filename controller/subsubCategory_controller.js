@@ -48,3 +48,13 @@ exports.editbyid=function(req,res,next){
         }
     })
 }
+
+exports.deletebyid=function(req,res,next){
+    SubSubCategory.findByIdAndRemove(req.body.id).exec(function(err,ssc){
+        if(ssc){
+            res.send(ssc);
+        }else{
+            res.send(err);
+        }
+    })
+}
