@@ -59,8 +59,5 @@ console.log(this.Brand)
     this.SubSubCategory=j.getsubcategorysubsubcategory;
     console.log(this.SubSubCategory)
   }
-  Brand;
-  getBrand(j){
-this.Brand=j.getsubsubCategoryBrand;
-  }
+
 }
