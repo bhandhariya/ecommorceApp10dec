@@ -36,3 +36,13 @@ exports.getAllbrandWithAlldetails=function(req,res,next){
         }
     })
 }
+
+exports.editByid=function(req,res,next){
+ var data=req.body;
+ console.log(data);   
+}
+
+exports.deleteByid=function(req,res,next){
+    var data=req.body;
+    console.log(data);   
+}
