@@ -39,10 +39,30 @@ exports.getAllbrandWithAlldetails=function(req,res,next){
 
 exports.editByid=function(req,res,next){
  var data=req.body;
- console.log(data);   
+ Brand.findByIdAndUpdate(data.id,{
+     $set:{
+        name:data.name,
+        categoryid:data.categoryid,
+        subcategoryid:data.subcategoryid,
+        subsubcategoryid:data.subsubcategoryid
+     }
+ }).exec(function(err,result){
+    if(result){
+        res.send(result)
+    }else{
+        res.send(err)
+    }
+})
+ 
 }
 
 exports.deleteByid=function(req,res,next){
     var data=req.body;
-    console.log(data);   
+    Brand.findByIdAndRemove(data.id).exec(function(err,result){
+        if(result){
+            res.send(result)
+        }else{
+            res.send(err)
+        }
+    })  
 }
