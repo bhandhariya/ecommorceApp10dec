@@ -24,3 +24,33 @@
 
 <button mat-raised-button color="primary" (click)="SubSubCategoryFormSubmit(SubSubCategoryForm.value)"  >Add Sub Sub Category</button>
 </div>
+
+<div class="container" *ngIf="SubSubCategories" >
+  <table class="table table-hover table-inverse table-responsive">
+    <thead class="thead-inverse">
+      <tr>
+        <th>S.N.</th>
+        <th>Category Name</th>
+        <th>SubCategory</th>
+        <th>SubSubCategory</th>
+        <th>Description</th>
+        <th>Creation Date</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let category of SubSubCategories;let i=index" >
+          <td scope="row">{{i+1}}</td>
+          <td>{{category.getsCategory[0].name}}</td>
+          <td>{{category.getsubsCategory[0].name}}</td>
+          <td *ngIf="a!=category._id;else cedit" >{{category.name}}</td>
+          <td *ngIf="a!=category._id;" >{{category.description}}</td>
+          <td *ngIf="a!=category._id;">{{category.creationDate | date}}</td>
+          <td *ngIf="a!=category._id;">
+            <button mat-raised-button color="accent" (click)="editCategory(category)"  >Edit</button>
+            <button class="marginleft" mat-raised-button color="warn" (click)="deleteCategory(category._id)" >Delete</button>
+          </td>
+        </tr>
+      </tbody>
+  </table>
+</div>
