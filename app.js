@@ -11,7 +11,7 @@ var CategoryRouter=require('./routes/category_route');
 var SubCategoryRouter=require('./routes/subCategory_route');
 var SubSubCategoryRouter=require('./routes/subsubCategory_route');
 var BrandRouter=require('./routes/brand_route');
-
+var ProductRouter=require('./routes/product_route');
 
 var db=require('./bin/db');
 var app = express();
@@ -33,7 +33,7 @@ app.use('/api/category',CategoryRouter);
 app.use('/api/subcategory',SubCategoryRouter);
 app.use('/api/subsubcategory',SubSubCategoryRouter);
 app.use('/api/brand',BrandRouter);
-
+app.use('/api/product',ProductRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
