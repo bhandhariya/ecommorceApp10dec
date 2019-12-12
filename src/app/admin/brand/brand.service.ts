@@ -20,5 +20,13 @@ export class BrandService {
   public createBrand(data): Observable<Response>  {
     return this.http.post<Response>('/api/brand/create',data);
   }
+  
+  public editbyid(data): Observable<Response>  {
+    return this.http.post<Response>('/api/brand/editByid',data);
+  }
+
+  public deletebyid(data): Observable<Response>  {
+    return this.http.post<Response>('/api/brand/deleteByid',data);
+  }
 
 }
