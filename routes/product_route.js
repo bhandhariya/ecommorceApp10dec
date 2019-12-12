@@ -6,9 +6,14 @@ var Product = require('../controller/product_controller')
 router.get('/', function(req, res, next) {
  res.send("product router")
 });
-router.post('/createproduct',Product.createProduct)
-router.get('/getAllProducts',Product.getAllProducts)
+router.post('/createproduct',Product.create)
 
-router.post('/getProductdatabyId',Product.getProductdatabyId)
+router.get('/getAllProductsdata',Product.getAllProductwithAllData)
+
+router.get('/getalldataforcatefory',Product.getAllData);
+
+router.post('/editByid',Product.editbyid);
+
+router.post('/deletebyid',Product.deletebyid);
 
 module.exports = router;
