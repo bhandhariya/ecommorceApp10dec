@@ -22,7 +22,7 @@ exports.createSubSUbCategory=function(req,res,next){
 }
 
 exports.getAllSubSUbCategory=function(req,res,next){
-    SubSubCategory.find().exec(function(err,ssc){
+    SubSubCategory.find().populate('getsCategory').populate('getsubsCategory').exec(function(err,ssc){
         if(ssc){
             res.send(ssc);
         }else{
