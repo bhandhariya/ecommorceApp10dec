@@ -4,7 +4,17 @@ var mongoose=require('mongoose');
 exports.createBrand=function(req,res,next){
     var data=req.body;
     console.log(data);
-    res.send(data);
+
+    var obj=new Brand({
+        _id:new mongoose.Types.ObjectId,
+        name:data.name,
+        creationDate:Date.now(),
+        categoryid:data.categoryid,
+        subcategoryid:data.subcategoryid,
+        subsubcategoryid:data.subsubcategoryid
+    });
+    console.log(obj);
+    res.send(obj)
 }
 
 exports.getAllbrnads=function(req,res,next){
