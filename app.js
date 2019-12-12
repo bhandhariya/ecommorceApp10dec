@@ -9,6 +9,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var CategoryRouter=require('./routes/category_route');
 var SubCategoryRouter=require('./routes/subCategory_route');
+var SubSubCategoryRouter=require('./routes/subsubCategory_route');
 
 
 var db=require('./bin/db');
@@ -29,6 +30,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/api/category',CategoryRouter);
 app.use('/api/subcategory',SubCategoryRouter);
+app.use('/api/subsubcategory',SubSubCategoryRouter);
 
 
 // catch 404 and forward to error handler
