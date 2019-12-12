@@ -12,4 +12,8 @@ export class SubsubcategoryService {
     return this.http.post<Response>('/api/subsubcategory/createSScategory',data);
   }
 
+  public getAllSubSUbCategory(): Observable<Response>  {
+    return this.http.get<Response>('/api/subsubcategory/getAllSubSUbCategory');
+  }
+
 }

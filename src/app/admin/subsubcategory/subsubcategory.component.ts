@@ -18,6 +18,7 @@ export class SubsubcategoryComponent implements OnInit {
 
   ngOnInit() {
     this.getCategoryWithSubCategory();
+    this.getAllSubSUbCategory();
   }
   getCategoryWithSubCategory(){
     this.catService.getAllCategorieswithCategory().subscribe(this.getAllCategoriesCB)
@@ -49,5 +50,13 @@ export class SubsubcategoryComponent implements OnInit {
   SubSubCategory;
   getSubSubCategoryList(i){
     this.SubSubCategory=i.getcategorySubcategory;
+  }
+  getAllSubSUbCategory(){
+    this.ssCatService.getAllSubSUbCategory().subscribe(this.getAllSubSUbCategoryCB)
+  }
+  SubSubCategories;
+  getAllSubSUbCategoryCB=(dt)=>{
+    this.SubSubCategories=dt;
+    console.log(this.SubSubCategories)
   }
 }
