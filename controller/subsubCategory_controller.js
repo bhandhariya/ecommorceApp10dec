@@ -20,3 +20,13 @@ exports.createSubSUbCategory=function(req,res,next){
         }
     })
 }
+
+exports.getAllSubSUbCategory=function(req,res,next){
+    SubSubCategory.find().exec(function(err,ssc){
+        if(ssc){
+            res.send(ssc);
+        }else{
+            res.send(err);
+        }
+    })
+}
