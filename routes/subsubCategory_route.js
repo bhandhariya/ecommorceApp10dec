@@ -12,4 +12,6 @@ router.get('/getAllSubSUbCategory',SSC.getAllSubSUbCategory);
 
 router.post('/editbyid',SSC.editbyid);
 
+router.post('/deletebyid',SSC.deletebyid);
+
 module.exports = router;
