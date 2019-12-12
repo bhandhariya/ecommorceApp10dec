@@ -1,3 +1,24 @@
-<p>
-  brand works!
-</p>
+<div class="example-container" [formGroup]="BrandForm"  >
+
+  <mat-form-field>
+      <mat-select placeholder="Select Category"  formControlName="categoryid"   >
+        <mat-option *ngFor="let i of CategoriesData" value="{{i._id}}"  (click)="getSubSubCategoryList(i)"   >{{i.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+    <mat-form-field *ngIf="SubSubCategory" >
+      <mat-select placeholder="Select Sub Category"  formControlName="subcategoryid" >
+        <mat-option  *ngFor="let i of SubSubCategory" value={{i._id}}  >{{i.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+<mat-form-field>
+  <input matInput placeholder="Enter Sub Category Name" formControlName="name"  >
+</mat-form-field>
+
+
+
+<button mat-raised-button color="primary" (click)="BrandFormSubmit(BrandForm.value)"  >Add brand</button>
+</div>

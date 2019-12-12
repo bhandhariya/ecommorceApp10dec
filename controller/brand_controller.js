@@ -39,7 +39,15 @@ exports.getAllbrandWithAlldetails=function(req,res,next){
 }
 
 exports.get=function(req,res,next){
-    Category.find().populate('getcategorySubcategory').populate('getcategorySubSubcategory').populate('getcategoryBrand').exec(function(err,result){
+    Category.find().populate({
+        path:'getcategorySubcategory',
+        populate:{
+            path:'getsubcategorysubsubcategory',
+            populate:{
+                path:'getsubsubCategoryBrand'
+            }
+        }
+    }).exec(function(err,result){
         if(result){
             res.send(result)
         }else{
