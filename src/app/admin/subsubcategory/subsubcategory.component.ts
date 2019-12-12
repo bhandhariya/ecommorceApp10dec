@@ -38,7 +38,13 @@ export class SubsubcategoryComponent implements OnInit {
   })
   SubSubCategoryFormSubmit(r){
     console.log(r);
-    
+    this.ssCatService.creatSubSubCategory(r).subscribe(this.SubSubCategoryFormSubmitCB)
+  }
+  SubSubCategoryFormSubmitCB=(dt)=>{
+    console.log(dt);
+    if(dt._id){
+      this.SubSubCategoryForm.reset();
+    }
   }
   SubSubCategory;
   getSubSubCategoryList(i){
