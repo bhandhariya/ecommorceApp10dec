@@ -16,4 +16,8 @@ export class SubsubcategoryService {
     return this.http.get<Response>('/api/subsubcategory/getAllSubSUbCategory');
   }
 
+  public editbyID(data): Observable<Response>  {
+    return this.http.post<Response>('/api/subsubcategory/editbyid',data);
+  }
+
 }
