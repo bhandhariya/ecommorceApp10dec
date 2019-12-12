@@ -53,10 +53,43 @@
           <td *ngIf="a!=category._id;">{{category.getbrandsubsubCategory[0].name}}</td>
           <td *ngIf="a!=category._id;" >{{category.name}}</td>
           <td *ngIf="a!=category._id;">
-            <button mat-raised-button color="accent" (click)="editsubsubCategory(category)"  >Edit</button>
-            <button class="marginleft" mat-raised-button color="warn" (click)="deleteSubSubCategory(category._id)" >Delete</button>
+            <button mat-raised-button color="accent" (click)="editBrand(category)"  >Edit</button>
+            <button class="marginleft" mat-raised-button color="warn" (click)="deleteBrand(category._id)" >Delete</button>
           </td>
         </tr>
       </tbody>
   </table>
 </div>
+
+<ng-template #cedit  >
+  <td>
+      <mat-form-field [formGroup]="brandEditForm" >
+          <mat-select placeholder="Select Category" formControlName="categoryid" >
+            <mat-option *ngFor="let i of CategoriesData"  value="{{i._id}}" (click)="getSubCategoryList(i)" >{{i.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+  </td>
+  <td>
+    <mat-form-field [formGroup]="brandEditForm" >
+        <mat-select placeholder="Select Sub Category" formControlName="subcategoryid" >
+          <mat-option *ngFor="let i of SubCategory" value="{{i._id}}" (click)="getSubSubCategory(i)"  >{{i.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+</td>
+<td>
+  <mat-form-field [formGroup]="brandEditForm" >
+      <mat-select placeholder="Select Sub Sub Category" formControlName="subsubcategoryid" >
+        <mat-option *ngFor="let i of SubSubCategory" value="{{i._id}}"  >{{i.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+</td>
+  <td>
+    <mat-form-field [formGroup]="brandEditForm" >
+      <input matInput placeholder="Enter Sub Category Name" formControlName="name"  >
+    </mat-form-field>
+  </td>
+  <td>
+    <button mat-raised-button color="accent"  (click)="cancleEditBrand()"  >Cancle</button>
+    <button class="marginleft" mat-raised-button color="warn" (click)="brandEditFormSubmit(brandEditForm.value)" >Save</button>
+  </td>
+</ng-template>

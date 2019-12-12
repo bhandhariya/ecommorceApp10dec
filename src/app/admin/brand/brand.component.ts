@@ -59,5 +59,39 @@ console.log(this.Brand)
     this.SubSubCategory=j.getsubcategorysubsubcategory;
     console.log(this.SubSubCategory)
   }
+  a="";
+  editBrand(b){
+   console.log(b);
+   this.a=b._id;
+   this.brandEditForm.get('id').setValue(b._id);
+   this.brandEditForm.get('categoryid').setValue(b.categoryid);
+   this.brandEditForm.get('subcategoryid').setValue(b.subcategoryid);
+   this.brandEditForm.get('subsubcategoryid').setValue(b.subsubcategoryid);
+   this.brandEditForm.get('name').setValue(b.name);
+  }
+  deleteBrand(id){
+    var obj={
+      id:id
+    }
+    this.brandService.deletebyid(obj).subscribe(this.brandEditFormSubmitCB)
+  }
+  cancleEditBrand(){
+    this.a=""
+  }
+  brandEditForm=new FormGroup({
+    id:new FormControl(''),
+    categoryid:new FormControl(''),
+    subcategoryid:new FormControl(''),
+    subsubcategoryid:new FormControl(''),
+    name:new FormControl('')
+  });
+  brandEditFormSubmit(r){
+    this.brandService.editbyid(r).subscribe(this.brandEditFormSubmitCB)
+  }
+  brandEditFormSubmitCB=(dt)=>{
+    this.a="";
+    this.getBrandDaTA();
+  }
+  
 
 }
