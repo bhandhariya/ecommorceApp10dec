@@ -9,6 +9,8 @@ router.get('/', function(req, res, next) {
 
 router.post('/create',Brand.createBrand);
 
-router.get('/getAllBrand',Brand.getAllbrnads)
+router.get('/getAllBrand',Brand.getAllbrnads);
+
+router.get('/getAllbrandWithAlldetails',Brand.getAllbrandWithAlldetails);
 
 module.exports = router;
