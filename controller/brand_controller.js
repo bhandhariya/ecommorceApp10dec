@@ -26,3 +26,13 @@ exports.getAllbrnads=function(req,res,next){
         }
     })
 }
+
+exports.getAllbrandWithAlldetails=function(req,res,next){
+    Brand.find().populate('getsbrandCategory').populate('getbrandsubCategory').populate('getbrandsubsubCategory').exec(function(err,result){
+        if(result){
+            res.send(result)
+        }else{
+            res.send(err)
+        }
+    })
+}
