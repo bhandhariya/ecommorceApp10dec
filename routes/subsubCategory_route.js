@@ -8,4 +8,6 @@ router.get('/', function(req, res, next) {
 
 router.post('/createSScategory',SSC.createSubSUbCategory);
 
+router.get('/getAllSubSUbCategory',SSC.getAllSubSUbCategory);
+
 module.exports = router;
