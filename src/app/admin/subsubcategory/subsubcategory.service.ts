@@ -9,7 +9,7 @@ export class SubsubcategoryService {
   constructor(private http:HttpClient) { }
 
   public creatSubSubCategory(data): Observable<Response>  {
-    return this.http.post<Response>('/api/subsubcategory/createsubsubcategory',data);
+    return this.http.post<Response>('/api/subsubcategory/createSScategory',data);
   }
 
 }
