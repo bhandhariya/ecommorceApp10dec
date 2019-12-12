@@ -34,23 +34,55 @@
         <th>SubCategory</th>
         <th>SubSubCategory</th>
         <th>Description</th>
-        <th>Creation Date</th>
+  
         <th>Actions</th>
       </tr>
       </thead>
       <tbody>
         <tr *ngFor="let category of SubSubCategories;let i=index" >
           <td scope="row">{{i+1}}</td>
-          <td>{{category.getsCategory[0].name}}</td>
-          <td>{{category.getsubsCategory[0].name}}</td>
-          <td *ngIf="a!=category._id;else cedit" >{{category.name}}</td>
+          <td *ngIf="a!=category._id;else cedit" >{{category.getsCategory[0].name}}</td>
+          <td *ngIf="a!=category._id;">{{category.getsubsCategory[0].name}}</td>
+          <td *ngIf="a!=category._id;" >{{category.name}}</td>
           <td *ngIf="a!=category._id;" >{{category.description}}</td>
-          <td *ngIf="a!=category._id;">{{category.creationDate | date}}</td>
+         
           <td *ngIf="a!=category._id;">
-            <button mat-raised-button color="accent" (click)="editCategory(category)"  >Edit</button>
-            <button class="marginleft" mat-raised-button color="warn" (click)="deleteCategory(category._id)" >Delete</button>
+            <button mat-raised-button color="accent" (click)="editsubsubCategory(category)"  >Edit</button>
+            <button class="marginleft" mat-raised-button color="warn" (click)="deleteSubSubCategory(category._id)" >Delete</button>
           </td>
         </tr>
       </tbody>
   </table>
 </div>
+
+<ng-template #cedit  >
+  <td>
+      <mat-form-field [formGroup]="subSubCategoryEditForm" >
+          <mat-select placeholder="Select Category" formControlName="categoryid" >
+            <mat-option *ngFor="let i of CategoriesData"  value="{{i._id}}" (click)="getSubSubCategoryList(i)" >{{i.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+  </td>
+  <td>
+    <mat-form-field [formGroup]="subSubCategoryEditForm" >
+        <mat-select placeholder="Select Category" formControlName="subcategoryid" >
+          <mat-option *ngFor="let i of SubSubCategory" value="{{i._id}}"  >{{i.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+</td>
+  <td>
+    <mat-form-field [formGroup]="subSubCategoryEditForm" >
+      <input matInput placeholder="Enter Sub Category Name" formControlName="name"  >
+    </mat-form-field>
+  </td>
+  <td>
+    <mat-form-field [formGroup]="subSubCategoryEditForm" >
+      <input matInput placeholder="Enter Descitption " formControlName="description"  >
+    </mat-form-field>
+  </td>
+  
+  <td>
+    <button mat-raised-button color="accent"  (click)="cancleEditCategory()"  >Cancle</button>
+    <button class="marginleft" mat-raised-button color="warn" (click)="subSubCategoryEditFormSubmit(subSubCategoryEditForm.value)" >Save</button>
+  </td>
+</ng-template>

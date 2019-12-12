@@ -60,4 +60,36 @@ export class SubsubcategoryComponent implements OnInit {
     this.SubSubCategories=dt;
     console.log(this.SubSubCategories)
   }
+  a="";
+  editsubsubCategory(c){
+    console.log(c)
+    this.a=c._id;
+    this.subSubCategoryEditForm.get('id').setValue(c._id);
+    this.subSubCategoryEditForm.get('categoryid').setValue(c.categoryid);
+    this.subSubCategoryEditForm.get('subcategoryid').setValue(c.subcategoryid);
+    this.subSubCategoryEditForm.get('name').setValue(c.name);
+    this.subSubCategoryEditForm.get('description').setValue(c.description);
+  }
+  deleteSubSubCategory(id){
+    console.log(id)
+  }
+  cancleEditCategory(){
+    this.a="";
+  }
+  subSubCategoryEditForm=new FormGroup({
+    id:new FormControl(''),
+    categoryid:new FormControl(''),
+    subcategoryid:new FormControl(''),
+    name:new FormControl(''),
+    description:new FormControl('')
+  });
+  subSubCategoryEditFormSubmit(r){
+    console.log(r);
+    this.ssCatService.editbyID(r).subscribe(this.subSubCategoryEditFormSubmitCB)
+  }
+  subSubCategoryEditFormSubmitCB=(dt)=>{
+    console.log(dt);
+    this.a="";
+    this.getAllSubSUbCategory();
+  }
 }
